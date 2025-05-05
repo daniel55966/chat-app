@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { auth, db } from "../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
-const SendMessage = () => {
+const SendMessage = ({ scroll }) => {
   const [message, setMessage] = useState("");
 
   const sendMessage = async (event) => {
@@ -25,7 +25,7 @@ const SendMessage = () => {
   };
 
   return (
-    <form onSubmit={(event) => sendMessage(event)} className="send-message">
+    <form className="send-message" onSubmit={sendMessage}>
       <label htmlFor="messageInput" hidden>
         Enter Message
       </label>
